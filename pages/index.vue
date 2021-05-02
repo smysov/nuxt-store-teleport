@@ -12,6 +12,7 @@
 
 export default {
   name: 'HomePage',
+  layout: 'main',
   head: {
     title: 'Главная страница',
   },
