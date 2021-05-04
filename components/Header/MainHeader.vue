@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Logo from '~/components/Header/Logo.vue';
+import Logo from '~/components/header/Logo.vue';
 
 export default {
   name: 'MainHeader',

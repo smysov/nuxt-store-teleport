@@ -26,6 +26,7 @@ module.exports = {
         template: 120,
       },
     ],
+    'no-shadow': 'off',
   },
   settings: {
     'import/resolver': {
