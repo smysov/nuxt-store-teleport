@@ -15,9 +15,12 @@
       <button class="goods__button goods__button_buy">
         Buy
       </button>
-      <button class="goods__button goods__button_more">
+      <nuxt-link
+        class="goods__button goods__button_more"
+        :to="`/products/${product.id}`"
+      >
         More
-      </button>
+      </nuxt-link>
     </div>
   </li>
 </template>
@@ -144,10 +147,11 @@ export default {
       }
 
       &_more {
-        background: #d18c5e;
+        text-align: center;
+        background: $light-pink;
 
         &:hover {
-          background: #b16736;
+          background: #cf8c5f;
         }
       }
     }
