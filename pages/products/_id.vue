@@ -2,6 +2,7 @@
   <div class="wrapper__content wrapper__content_fixed">
     <section class="info">
       <div class="container">
+        <button-back />
         <h1 class="info__title">
           Info about product
         </h1>
@@ -13,10 +14,11 @@
 
 <script>
 import ProductInfo from '~/components/product/ProductInfo.vue';
+import ButtonBack from '~/components/main/ButtonBack.vue';
 
 export default {
   name: 'FullInfoProduct',
-  components: { ProductInfo },
+  components: { ProductInfo, ButtonBack },
   layout: 'main',
   async asyncData({ store, params }) {
     await store.dispatch('goods/requestProduct', params.id);
@@ -31,6 +33,16 @@ export default {
 
 <style lang="scss">
 .info {
+  padding: 30px 0;
+
+  @include phone {
+    padding: 35px 0;
+  }
+
+  @include tablets {
+    padding: 40px 0;
+  }
+
     &__title {
     position: relative;
     font-size: 16px;
