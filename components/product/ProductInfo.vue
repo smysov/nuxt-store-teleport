@@ -139,19 +139,11 @@ export default {
 .product {
   &__button {
   color: #fff;
-  text-transform: uppercase;
-  font-weight: 700;
-  cursor: pointer;
-  padding: 5px 20px;
-  border: 2px solid transparent;
-  border-radius: 8px;
   min-width: 120px;
-  outline: none;
-  transition: .3s background ease-out;
 
-      &:focus {
-        border-color: #535353;
-      }
+    &:focus {
+      border-color: #535353;
+    }
 
   &_buy {
     background: #5ed15e;

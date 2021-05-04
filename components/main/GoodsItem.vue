@@ -124,15 +124,11 @@ export default {
 
     &__button {
       color: #fff;
-      text-transform: uppercase;
-      font-weight: 700;
-      cursor: pointer;
-      padding: 5px 20px;
-      border: 2px solid transparent;
-      border-radius: 8px;
       min-width: 120px;
-      outline: none;
-      transition: .3s background ease-out;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-radius: 8px;
+      padding: 5px 20px;
 
       &:focus {
           border-color: #535353;
@@ -149,6 +145,8 @@ export default {
       &_more {
         text-align: center;
         background: $light-pink;
+        outline-color: $light-pink;
+        outline-offset: 2px;
 
         &:hover {
           background: #cf8c5f;

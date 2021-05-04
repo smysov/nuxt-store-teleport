@@ -27,6 +27,8 @@ export default {
   transition: all .3s ease-out;
   margin-bottom: 20px;
   width: 90px;
+  outline-color: #000;
+  outline-offset: 2px;
 
   &:hover {
     color: $light-pink;
