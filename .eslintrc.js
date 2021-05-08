@@ -26,6 +26,9 @@ module.exports = {
         template: 120,
       },
     ],
+    'no-shadow': 'off',
+    'no-param-reassign': 'off',
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
   },
   settings: {
     'import/resolver': {

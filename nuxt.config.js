@@ -15,7 +15,7 @@ export default {
 
   css: ['@/assets/styles/main.scss'],
 
-  plugins: [],
+  plugins: ['~/plugins/axios'],
 
   components: true,
 
@@ -23,7 +23,8 @@ export default {
 
   modules: ['@nuxtjs/axios', '@nuxtjs/style-resources'],
 
-  axios: {},
+  axios: {
+  },
 
   styleResources: {
     scss: [
