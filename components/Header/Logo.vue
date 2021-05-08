@@ -28,6 +28,7 @@ export default {
   letter-spacing: 1.1px;
   color: $dark-grey;
   transition: all .3s ease-out;
+  max-width: 150px;
 
   @include tablets {
     font-size: 18px;
