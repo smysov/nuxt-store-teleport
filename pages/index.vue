@@ -5,6 +5,7 @@
         <h2 class="products__title">
           our products
         </h2>
+        <header-products />
         <ul class="goods">
           <goods-item
             v-for="product of products"
@@ -18,11 +19,12 @@
 </template>
 
 <script>
+import HeaderProducts from '~/components/main/HeaderProducts.vue';
 import GoodsItem from '~/components/main/GoodsItem.vue';
 
 export default {
   name: 'HomePage',
-  components: { GoodsItem },
+  components: { GoodsItem, HeaderProducts },
   layout: 'main',
   head: {
     title: 'Главная страница',
