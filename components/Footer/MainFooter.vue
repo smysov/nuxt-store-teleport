@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import SocialList from '~/components/Footer/SocialList.vue';
+import SocialList from '~/components/footer/SocialList.vue';
 
 export default {
   name: 'MainFooter',

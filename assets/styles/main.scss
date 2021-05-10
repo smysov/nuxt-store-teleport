@@ -34,6 +34,18 @@ img {
   height: auto;
 }
 
+button {
+  @include font('Mantonico', 14px, 700, normal);
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 5px 20px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  transition: .3s background ease-out;
+}
+
 ul,
 li {
   margin: 0;
@@ -68,7 +80,7 @@ section,
   &__content {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    flex: 1;
     &_fixed {
       margin-top: 40px;
     }
