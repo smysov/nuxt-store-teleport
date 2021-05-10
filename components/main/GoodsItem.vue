@@ -130,23 +130,24 @@ export default {
       border-radius: 8px;
       padding: 5px 20px;
 
-      &:focus {
-          border-color: #535353;
-      }
-
       &_buy {
         background: #5ed15e;
 
         &:hover {
           background: #379237;
         }
+
+        &:focus {
+          border-color: #535353;
+      }
       }
 
       &_more {
         text-align: center;
         background: $light-pink;
         outline-color: $light-pink;
-        outline-offset: 2px;
+        outline-offset: 3px;
+        border: 2px solid transparent;
 
         &:hover {
           background: #cf8c5f;
