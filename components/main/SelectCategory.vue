@@ -53,7 +53,7 @@ select {
   text-transform: capitalize;
   flex: 1;
   box-shadow: none;
-  padding: 6px 12px;
+  padding: 12px 12px;
   border: 0 !important;
   background: #FFBA9D;
   outline: 0;
@@ -78,7 +78,7 @@ select {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 6px 12px;
+    padding: 12px 12px;
     background: $light-pink;
     color: #fff;
     cursor: pointer;

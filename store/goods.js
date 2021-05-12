@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 export const state = () => ({
   products: [],
   product: {},
@@ -10,12 +9,13 @@ export const state = () => ({
       name: 'electronics',
     },
     {
-      name: 'men\'s clothing',
+      name: "men's clothing",
     },
     {
-      name: 'women\'s clothing',
+      name: "women's clothing",
     },
   ],
+  searchResult: [],
 });
 
 export const mutations = {
@@ -34,6 +34,10 @@ export const mutations = {
       return product.category === category;
     });
   },
+  SEARCH_PRODUCTS(state, title) {
+    const value = title.trim().toLowerCase();
+    state.searchResult = state.products.filter((product) => product.title.trim().toLowerCase().includes(value));
+  },
 };
 
 export const actions = {
@@ -44,7 +48,7 @@ export const actions = {
       );
       commit('SET_GOODS', response);
     } catch (e) {
-      console.error(e);
+      Error(e);
     }
   },
   async requestProduct({ commit }, id) {
@@ -54,12 +58,15 @@ export const actions = {
       );
       commit('SET_PRODUCT', response);
     } catch (e) {
-      console.error(e);
+      Error(e);
     }
   },
   async filteredByCategory({ commit, dispatch }, category) {
     await dispatch('requestProducts');
     commit('FILTER_PRODUCTS_BY_CATEGORY', category);
+  },
+  searchProducts({ commit }, title) {
+    commit('SEARCH_PRODUCTS', title);
   },
 };
 
@@ -67,4 +74,5 @@ export const getters = {
   products: (state) => state.products,
   product: (state) => state.product,
   category: (state) => state.category,
+  searchResult: (state) => state.searchResult,
 };
