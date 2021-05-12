@@ -13,6 +13,12 @@
             :product="product"
           />
         </ul>
+        <p
+          v-if="!products.length"
+          class="result"
+        >
+          Product(s) not found!
+        </p>
       </div>
     </section>
   </div>
@@ -31,7 +37,9 @@ export default {
   },
   computed: {
     products() {
-      return this.$store.getters['goods/products'];
+      return !this.$store.getters['search/search']
+        ? this.$store.getters['goods/products']
+        : this.$store.getters['goods/searchResult'];
     },
   },
 };
@@ -66,5 +74,11 @@ export default {
       background: #000;
     }
   }
+}
+
+.result {
+  text-align: center;
+  font-size: 18px;
+  text-transform: uppercase;
 }
 </style>
