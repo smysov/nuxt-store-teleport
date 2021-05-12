@@ -1,20 +1,6 @@
 export const state = () => ({
   products: [],
   product: {},
-  category: [
-    {
-      name: 'jewelery',
-    },
-    {
-      name: 'electronics',
-    },
-    {
-      name: "men's clothing",
-    },
-    {
-      name: "women's clothing",
-    },
-  ],
   searchResult: [],
 });
 
@@ -73,6 +59,5 @@ export const actions = {
 export const getters = {
   products: (state) => state.products,
   product: (state) => state.product,
-  category: (state) => state.category,
   searchResult: (state) => state.searchResult,
 };
