@@ -35,8 +35,7 @@ img {
 }
 
 button {
-  font-family: "Mantonico";
-  font-weight: 700;
+  @include font('Mantonico', 14px, 700, normal);
   color: #fff;
   text-transform: uppercase;
   cursor: pointer;
