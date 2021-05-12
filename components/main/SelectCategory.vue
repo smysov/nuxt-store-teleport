@@ -34,12 +34,12 @@ export default {
   }),
   computed: {
     category() {
-      return this.$store.getters['goods/category'];
+      return this.$store.getters['category/category'];
     },
   },
   methods: {
     ChangedCategory() {
-      this.$store.dispatch('goods/filteredByCategory', this.selectedCategory);
+      this.$store.dispatch('category/setCategory', this.selectedCategory);
     },
   },
 };
