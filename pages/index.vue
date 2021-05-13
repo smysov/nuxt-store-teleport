@@ -8,7 +8,7 @@
         <header-products />
         <ul class="goods">
           <goods-item
-            v-for="product of products"
+            v-for="product of paginatedProducts"
             :key="product.id"
             :product="product"
           />
@@ -19,6 +19,9 @@
         >
           Product(s) not found!
         </p>
+        <pagination
+          :pages="pages"
+        />
       </div>
     </section>
   </div>
@@ -27,19 +30,24 @@
 <script>
 import HeaderProducts from '~/components/main/HeaderProducts.vue';
 import GoodsItem from '~/components/main/GoodsItem.vue';
+import Pagination from '~/components/main/Pagination.vue';
 
 export default {
   name: 'HomePage',
-  components: { GoodsItem, HeaderProducts },
+  components: { GoodsItem, HeaderProducts, Pagination },
   layout: 'main',
   head: {
     title: 'Главная страница',
   },
   computed: {
     products() {
-      return !this.$store.getters['search/search']
-        ? this.$store.getters['goods/products']
-        : this.$store.getters['goods/searchResult'];
+      return this.$store.getters['goods/products'];
+    },
+    pages() {
+      return Math.ceil(this.products.length / 6);
+    },
+    paginatedProducts() {
+      return this.$store.getters['goods/slicedProducts'];
     },
   },
 };
