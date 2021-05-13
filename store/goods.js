@@ -1,7 +1,9 @@
 export const state = () => ({
   products: [],
   product: {},
-  searchResult: [],
+  paginatedProducts: [],
+  currentPage: 1,
+  productsPerPage: 6,
 });
 
 export const mutations = {
@@ -22,7 +24,10 @@ export const mutations = {
   },
   SEARCH_PRODUCTS(state, title) {
     const value = title.trim().toLowerCase();
-    state.searchResult = state.products.filter((product) => product.title.trim().toLowerCase().includes(value));
+    state.products = state.products.filter((product) => product.title.trim().toLowerCase().includes(value));
+  },
+  SET_CURRENT_PAGE(state, page) {
+    state.currentPage = page;
   },
 };
 
@@ -49,15 +54,27 @@ export const actions = {
   },
   async filteredByCategory({ commit, dispatch }, category) {
     await dispatch('requestProducts');
+    await dispatch('setCurrentPage', 1);
     commit('FILTER_PRODUCTS_BY_CATEGORY', category);
   },
-  searchProducts({ commit }, title) {
+  async searchProducts({ commit, dispatch }, title) {
+    await dispatch('requestProducts');
+    await dispatch('setCurrentPage', 1);
     commit('SEARCH_PRODUCTS', title);
+  },
+  setCurrentPage({ commit }, page) {
+    commit('SET_CURRENT_PAGE', page);
   },
 };
 
 export const getters = {
   products: (state) => state.products,
+  slicedProducts: ({ currentPage, productsPerPage, products }) => {
+    const from = currentPage * productsPerPage - productsPerPage;
+    const to = currentPage * productsPerPage;
+    return products.slice(from, to);
+  },
   product: (state) => state.product,
-  searchResult: (state) => state.searchResult,
+  currentPage: (state) => state.currentPage,
+  productsPerPage: (state) => state.searchResult,
 };
