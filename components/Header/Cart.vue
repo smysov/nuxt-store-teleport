@@ -4,8 +4,11 @@
     :class="{cart_active: activeClassCart}"
     @click="openCart"
   >
-    <div class="cart__count">
-      {{ productsInCart.length }}
+    <div
+      class="cart__count"
+      :class="{cart__count_full: productsInCart.length > 0}"
+    >
+      <div>{{ productsInCart.length }}</div>
     </div>
     <svg-icon
       name="cart"
@@ -58,16 +61,19 @@ export default {
   }
 
   &__count {
+    font-size: 12px;
+    font-weight: 500;
     position: absolute;
-    top: -11px;
-    right: -9px;
-    text-align: center;
+    padding: 2px 7px;
+    top: -8px;
+    right: -5px;
     color: #fff;
-    background: #a7a7a7;
-    width: 17px;
-    height: 17px;
-    z-index: -1;
+    background: $dark-grey;
     border-radius: 50%;
+
+    &_full {
+      background: #000;
+    }
   }
 }
 </style>
