@@ -13,7 +13,11 @@ export default {
   },
   loading: { color: 'green' },
 
-  css: ['@/assets/styles/main.scss'],
+  css: [
+    '@/assets/styles/main.scss',
+    'vue-slick-carousel/dist/vue-slick-carousel.css',
+    'vue-slick-carousel/dist/vue-slick-carousel-theme.css',
+  ],
 
   plugins: ['~/plugins/axios'],
 
@@ -23,8 +27,7 @@ export default {
 
   modules: ['@nuxtjs/axios', '@nuxtjs/style-resources'],
 
-  axios: {
-  },
+  axios: {},
 
   styleResources: {
     scss: [
