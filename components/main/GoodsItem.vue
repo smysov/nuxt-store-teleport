@@ -12,8 +12,11 @@
     </h3>
     <span class="goods__price">{{ product.price }}$</span>
     <div class="goods__buttons">
-      <button class="goods__button goods__button_buy">
-        Buy
+      <button
+        class="goods__button goods__button_buy"
+        @click="addToCart(product.id)"
+      >
+        Add cart
       </button>
       <nuxt-link
         class="goods__button goods__button_more"
@@ -32,6 +35,11 @@ export default {
     product: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    addToCart(id) {
+      this.$store.dispatch('cart/addProductToCart', id);
     },
   },
 };
