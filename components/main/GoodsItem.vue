@@ -14,7 +14,7 @@
     <div class="goods__buttons">
       <button
         class="goods__button goods__button_buy"
-        @click="addToCart(product.id)"
+        @click="addToCart(product)"
       >
         Add cart
       </button>
@@ -38,8 +38,8 @@ export default {
     },
   },
   methods: {
-    addToCart(id) {
-      this.$store.dispatch('cart/addProductToCart', id);
+    addToCart(product) {
+      this.$store.dispatch('cart/addProductToCart', product);
     },
   },
 };

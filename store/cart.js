@@ -16,8 +16,7 @@ export const actions = {
   setActiveClass({ commit }) {
     commit('SET_ACTIVE_CLASS');
   },
-  addProductToCart({ commit, rootState }, id) {
-    const product = rootState.goods.products.find((product) => product.id === id);
+  addProductToCart({ commit }, product) {
     commit('ADD_PRODUCT_TO_CART', product);
   },
 };
