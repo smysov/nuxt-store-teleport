@@ -1,5 +1,6 @@
 <template>
   <div class="wrapper__content wrapper__content-fixed">
+    <slider />
     <section class="products">
       <div class="container">
         <h2 class="products__title">
@@ -31,10 +32,13 @@
 import HeaderProducts from '~/components/main/HeaderProducts.vue';
 import GoodsItem from '~/components/main/GoodsItem.vue';
 import Pagination from '~/components/main/Pagination.vue';
+import Slider from '~/components/main/Slider.vue';
 
 export default {
   name: 'HomePage',
-  components: { GoodsItem, HeaderProducts, Pagination },
+  components: {
+    GoodsItem, HeaderProducts, Pagination, Slider,
+  },
   layout: 'main',
   head: {
     title: 'Главная страница',
@@ -55,7 +59,6 @@ export default {
 
 <style lang="scss">
 .products {
-  margin-top: 50px;
 
   &__title {
     position: relative;
