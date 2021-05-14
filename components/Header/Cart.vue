@@ -2,7 +2,7 @@
   <div
     class="cart"
     :class="{cart_active: activeClassCart}"
-    @click="openCart"
+    @click="openCart(true)"
   >
     <div
       class="cart__count"
@@ -29,8 +29,10 @@ export default {
     },
   },
   methods: {
-    openCart() {
-      this.$store.dispatch('cart/setActiveClass');
+    openCart(boolean) {
+      this.$store.dispatch('cart/setActiveClass', boolean);
+      this.$store.dispatch('cart/isOpen', boolean);
+      this.$store.dispatch('cart/isHidden', boolean);
     },
   },
 };

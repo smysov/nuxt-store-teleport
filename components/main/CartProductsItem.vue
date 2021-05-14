@@ -1,0 +1,38 @@
+<template>
+  <li
+    class="goods-cart__item"
+  >
+    <div class="goods-cart__inner-image">
+      <img
+        :src="product.image"
+        :alt="product.title"
+        class="goods-cart__image"
+      >
+    </div>
+    <h2 class="goods-cart__title">
+      {{ product.title }}
+    </h2>
+    <div class="goods-cart__count">
+      <button
+        class="goods-cart__button goods-cart__button_decrease"
+      />
+      <span class="goods-cart__number">1</span>
+      <button
+        class="
+              goods-cart__button goods-cart__button_increase"
+      />
+    </div>
+  </li>
+</template>
+
+<script>
+export default {
+  name: 'CartProductsItem',
+  props: {
+    product: {
+      type: Object,
+      required: true,
+    },
+  },
+};
+</script>
