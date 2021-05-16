@@ -12,6 +12,7 @@
     <h2 class="goods-cart__title">
       {{ product.title }}
     </h2>
+    <span class="goods-cart_price">{{ product.price }}$</span>
     <div class="goods-cart__count">
       <button
         class="goods-cart__button goods-cart__button_decrease"

@@ -47,6 +47,9 @@ export default {
   head() {
     return {
       title: 'Главная страница',
+      bodyAttrs: {
+        class: this.isHidden ? 'hidden' : '',
+      },
     };
   },
   computed: {
@@ -61,6 +64,9 @@ export default {
     },
     isOpen() {
       return this.$store.getters['cart/isOpen'];
+    },
+    isHidden() {
+      return this.$store.getters['cart/isHidden'];
     },
   },
 };

@@ -20,6 +20,7 @@
       <ul
         v-if="productsInCart.length !== 0"
         class="goods-cart"
+        :class="{center: productsInCart.length === 1}"
       >
         <cart-products-item
           v-for="product of productsInCart"
@@ -53,6 +54,7 @@ export default {
       this.$store.dispatch('cart/isOpen', boolean);
       this.$store.dispatch('cart/setActiveClass', boolean);
       this.$store.dispatch('cart/isOpen', boolean);
+      this.$store.dispatch('cart/isHidden', boolean);
     },
   },
 };
@@ -64,7 +66,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -127,6 +129,10 @@ export default {
   justify-content: space-between;
   padding: 20px 5px;
 
+  &.center {
+    justify-content: center;
+  }
+
   @include phone {
     padding: 20px 15px;
     row-gap: 30px;
@@ -140,7 +146,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    row-gap: 10px;
     width: 46%;
 
     @include phone {
@@ -177,6 +183,7 @@ export default {
     font-size: 12px;
     text-align: center;
     width: 120px;
+    margin-bottom: auto;
 
     @include phone {
       font-size: 15px;
@@ -185,6 +192,10 @@ export default {
 
     @media (min-width: 660px) {
       font-size: 16px;
+    }
+
+    @include tablets {
+      margin-bottom: 0;
     }
   }
 
