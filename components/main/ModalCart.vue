@@ -23,9 +23,12 @@
         :class="{center: productsInCart.length === 1}"
       >
         <cart-products-item
-          v-for="product of productsInCart"
+          v-for="(product, index) of productsInCart"
           :key="product.id"
           :product="product"
+          @deleteProductFromCart="deleteProductFromCart(index)"
+          @decreaseQuantity="decreaseQuantity(index)"
+          @increaseQuantity="increaseQuantity(index)"
         />
       </ul>
       <p
@@ -33,6 +36,11 @@
         class="cart-message"
       >
         Empty shopping cart!
+      </p>
+    </div>
+    <div class="modal__footer">
+      <p class="goods-cart__total">
+        <span>Total:</span>  {{ total }}$
       </p>
     </div>
   </div>
@@ -48,6 +56,16 @@ export default {
     productsInCart() {
       return this.$store.getters['cart/productsInCart'];
     },
+    total() {
+      let total = [];
+
+      this.productsInCart.forEach((product) => {
+        total.push(product.price * product.quantity);
+      });
+
+      total = total.reduce((acc, item) => acc + item, 0);
+      return +total.toFixed(2);
+    },
   },
   methods: {
     closeCart(boolean) {
@@ -55,6 +73,15 @@ export default {
       this.$store.dispatch('cart/setActiveClass', boolean);
       this.$store.dispatch('cart/isOpen', boolean);
       this.$store.dispatch('cart/isHidden', boolean);
+    },
+    deleteProductFromCart(index) {
+      this.$store.dispatch('cart/deleteProductFromCart', index);
+    },
+    decreaseQuantity(index) {
+      this.$store.dispatch('cart/decreaseQuantity', index);
+    },
+    increaseQuantity(index) {
+      this.$store.dispatch('cart/increaseQuantity', index);
     },
   },
 };
@@ -101,6 +128,10 @@ export default {
     @include tablets {
       width: 700px;
     }
+  }
+
+  &__footer {
+    @extend .modal__header;
   }
 
   &__close {
@@ -245,6 +276,17 @@ export default {
     &:hover {
       opacity: .7;
       transform: scale(.9);
+    }
+  }
+
+  &__total {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 500;
+    margin: 0;
+
+    & span {
+      font-size: 20px;
     }
   }
 }

@@ -16,16 +16,18 @@
     <div class="goods-cart__count">
       <button
         class="goods-cart__button goods-cart__button_decrease"
+        @click="decreaseQuantity"
       />
-      <span class="goods-cart__number">1</span>
+      <span class="goods-cart__number">{{ product.quantity }}</span>
       <button
         class="
               goods-cart__button goods-cart__button_increase"
+        @click="increaseQuantity"
       />
     </div>
     <button
       class="goods-cart__remove-button"
-      @click="deleteProductFromCart(product)"
+      @click="deleteProductFromCart"
     />
   </li>
 </template>
@@ -36,12 +38,21 @@ export default {
   props: {
     product: {
       type: Object,
-      required: true,
+      default() {
+        return {};
+      },
     },
   },
+  emits: ['deleteProductFromCart', 'decreaseQuantity', 'increaseQuantity'],
   methods: {
-    deleteProductFromCart(product) {
-      this.$store.dispatch('cart/deleteProductFromCart', product);
+    deleteProductFromCart() {
+      this.$emit('deleteProductFromCart');
+    },
+    decreaseQuantity() {
+      this.$emit('decreaseQuantity');
+    },
+    increaseQuantity() {
+      this.$emit('increaseQuantity');
     },
   },
 };
