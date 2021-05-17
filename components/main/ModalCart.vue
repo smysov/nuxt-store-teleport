@@ -232,8 +232,22 @@ export default {
       background: url("~/assets/images/svg/minus.svg") center center no-repeat;
     }
   }
-}
 
+  &__remove-button {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    border-radius: 5px;
+    background: url(./assets/images/svg/close.svg) center center / 15px 15px no-repeat;
+    background-color: red;
+    transition: all .3s ease-out;
+
+    &:hover {
+      opacity: .7;
+      transform: scale(.9);
+    }
+  }
+}
 .cart-message {
   font-size: 18px;
   color: $dark-grey;

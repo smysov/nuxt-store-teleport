@@ -23,6 +23,10 @@
               goods-cart__button goods-cart__button_increase"
       />
     </div>
+    <button
+      class="goods-cart__remove-button"
+      @click="deleteProductFromCart(product)"
+    />
   </li>
 </template>
 
@@ -33,6 +37,11 @@ export default {
     product: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    deleteProductFromCart(product) {
+      this.$store.dispatch('cart/deleteProductFromCart', product);
     },
   },
 };

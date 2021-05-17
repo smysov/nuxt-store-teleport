@@ -12,6 +12,9 @@ export const mutations = {
   ADD_PRODUCT_TO_CART(state, product) {
     state.productsInCart.push(product);
   },
+  DELETE_PRODUCT_FROM_CART(state, index) {
+    state.productsInCart.splice(index, 1);
+  },
   IS_OPEN(state, boolean) {
     state.isOpen = boolean;
   },
@@ -26,6 +29,12 @@ export const actions = {
   },
   addProductToCart({ commit }, product) {
     commit('ADD_PRODUCT_TO_CART', product);
+  },
+  deleteProductFromCart({ state, commit }, value) {
+    const findIndex = state.productsInCart.findIndex(
+      (product) => product === value,
+    );
+    commit('DELETE_PRODUCT_FROM_CART', findIndex);
   },
   isOpen({ commit }, boolean) {
     commit('IS_OPEN', boolean);
