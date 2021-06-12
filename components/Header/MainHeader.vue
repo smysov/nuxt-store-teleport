@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import Logo from '~/components/header/Logo.vue';
-import Cart from '~/components/header/Cart.vue';
+import Logo from '~/components/ui/Logo.vue';
+import Cart from '~/components/ui/Cart.vue';
 
 export default {
   name: 'MainHeader',

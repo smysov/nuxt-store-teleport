@@ -14,25 +14,21 @@
       <span class="goods__price">${{ product.price }}</span>
     </div>
     <div class="goods__buttons">
-      <button
-        class="goods__button goods__button_buy"
-        @click="addToCart(product)"
-      >
-        Add cart
-      </button>
-      <nuxt-link
-        class="goods__button goods__button_more"
-        :to="`/products/${product.id}`"
-      >
-        More
-      </nuxt-link>
+      <button-add-to-cart
+        :product="product"
+      />
+      <button-more-about-product :product="product" />
     </div>
   </li>
 </template>
 
 <script>
+import ButtonAddToCart from '@/components/ui/ButtonAddToCart.vue';
+import ButtonMoreAboutProduct from '@/components/ui/ButtonMoreAboutProduct.vue';
+
 export default {
   name: 'GoodsItem',
+  components: { ButtonAddToCart, ButtonMoreAboutProduct },
   props: {
     product: {
       type: Object,
@@ -141,26 +137,6 @@ export default {
     }
 
     &__button {
-      color: #494949;
-      min-width: 120px;
-      font-weight: 700;
-      border: 2px solid #494949;
-      text-transform: uppercase;
-      padding: 5px 20px;
-      background: none;
-      transition: 0.3s all ease-out;
-
-      &_buy {
-
-        &:hover {
-          opacity: .6;
-        }
-
-        &:focus {
-          border-color: #56a553;
-          color: #56a553;
-        }
-      }
 
       &_more {
         text-align: center;

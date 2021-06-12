@@ -13,6 +13,10 @@ body {
   line-height: 1.42;
   margin: 0;
   padding: 0;
+
+  &.hidden {
+    overflow: hidden;
+  }
 }
 
 h1,

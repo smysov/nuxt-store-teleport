@@ -57,7 +57,7 @@ export default {
       return this.$store.getters['cart/productsInCart'];
     },
     total() {
-      return this.productsInCart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+      return +this.productsInCart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);
     },
   },
   methods: {
@@ -114,7 +114,7 @@ export default {
 
   &__header {
     width: 90%;
-    background-color: $grey;
+    background-color: #7d7b7a;
     padding: 10px 10px 10px 0;
     text-align: right;
 
@@ -204,7 +204,8 @@ export default {
   }
 
   &__title {
-    font-size: 12px;
+    font-size: 13px;
+    font-weight: 300;
     text-align: center;
     width: 120px;
     margin-bottom: auto;
@@ -221,6 +222,10 @@ export default {
     @include tablets {
       margin-bottom: 0;
     }
+  }
+
+  &__price {
+    font-weight: 500;
   }
 
   &__count {
@@ -258,17 +263,14 @@ export default {
   }
 
   &__remove-button {
-    width: 25px;
-    height: 25px;
-    padding: 0;
-    border-radius: 5px;
-    background: url(./assets/images/svg/close.svg) center center / 15px 15px no-repeat;
-    background-color: red;
-    transition: all .3s ease-out;
+    font-size: 12px;
+    color: #000;
+    background: transparent;
+    transition: all .3s ease-in-out;
 
     &:hover {
       opacity: .7;
-      transform: scale(.9);
+      text-decoration: underline;
     }
   }
 
