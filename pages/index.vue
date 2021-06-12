@@ -1,5 +1,7 @@
 <template>
-  <div class="wrapper__content wrapper__content-fixed">
+  <div
+    class="wrapper__content"
+  >
     <slider />
     <section class="products">
       <div class="container">
@@ -25,6 +27,7 @@
         />
       </div>
     </section>
+    <modal-cart v-show="isOpen" />
   </div>
 </template>
 
@@ -33,15 +36,21 @@ import HeaderProducts from '~/components/main/HeaderProducts.vue';
 import GoodsItem from '~/components/main/GoodsItem.vue';
 import Pagination from '~/components/main/Pagination.vue';
 import Slider from '~/components/main/Slider.vue';
+import ModalCart from '~/components/main/ModalCart.vue';
 
 export default {
   name: 'HomePage',
   components: {
-    GoodsItem, HeaderProducts, Pagination, Slider,
+    GoodsItem, HeaderProducts, Pagination, Slider, ModalCart,
   },
   layout: 'main',
-  head: {
-    title: 'Главная страница',
+  head() {
+    return {
+      title: 'Главная страница',
+      bodyAttrs: {
+        class: this.isHidden ? 'hidden' : '',
+      },
+    };
   },
   computed: {
     products() {
@@ -52,6 +61,12 @@ export default {
     },
     paginatedProducts() {
       return this.$store.getters['goods/slicedProducts'];
+    },
+    isOpen() {
+      return this.$store.getters['cart/isOpen'];
+    },
+    isHidden() {
+      return this.$store.getters['cart/isHidden'];
     },
   },
 };
