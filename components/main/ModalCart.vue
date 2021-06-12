@@ -103,6 +103,18 @@ export default {
     max-height: 400px;
     overflow-y: auto;
 
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $grey;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $light-black;
+  }
+
     @include phone {
       max-height: 550px;
     }
@@ -114,7 +126,7 @@ export default {
 
   &__header {
     width: 90%;
-    background-color: #7d7b7a;
+    background-color: $light-black;
     padding: 10px 10px 10px 0;
     text-align: right;
 
@@ -131,6 +143,7 @@ export default {
     width: 12px;
     height: 12px;
     fill: #fff;
+    transition: all .3s ease-in-out;
     cursor: pointer;
 
     @include phone {
@@ -141,6 +154,14 @@ export default {
     @include tablets {
       width: 20px;
       height: 20px;
+    }
+
+    &:hover {
+      fill: #ff4d4d;
+    }
+
+    &:active {
+      fill: red;
     }
   }
 }
@@ -247,6 +268,7 @@ export default {
     width: 20px;
     height: 20px;
     padding: 0;
+    transition: all .3s ease-in-out;
     background: transparent;
 
     @include phone {
@@ -254,12 +276,21 @@ export default {
       height: 22px;
     }
 
-    &_increase {
-      background: url("~/assets/images/svg/plus.svg") center center no-repeat;
+    &:hover {
+      .goods-cart__icon-increase {
+        fill: #528d52;
+      }
+      .goods-cart__icon-decrease {
+        fill: #ce5050;
+      }
     }
-    &_decrease {
-      background: url("~/assets/images/svg/minus.svg") center center no-repeat;
-    }
+  }
+
+  &__icon-decrease,
+  &__icon-increase {
+    width: 20px;
+    height: 20px;
+    fill: #818181;
   }
 
   &__remove-button {
@@ -271,6 +302,10 @@ export default {
     &:hover {
       opacity: .7;
       text-decoration: underline;
+    }
+
+    &:active {
+      color: crimson;
     }
   }
 
