@@ -9,16 +9,18 @@
         <product-info :product="product" />
       </div>
     </section>
+    <modal-cart v-show="isOpen" />
   </div>
 </template>
 
 <script>
 import ProductInfo from '~/components/product/ProductInfo.vue';
 import ButtonBack from '~/components/main/ButtonBack.vue';
+import ModalCart from '~/components/main/ModalCart.vue';
 
 export default {
   name: 'FullInfoProduct',
-  components: { ProductInfo, ButtonBack },
+  components: { ProductInfo, ButtonBack, ModalCart },
   layout: 'main',
   async asyncData({ store, params }) {
     await store.dispatch('goods/requestProduct', params.id);
@@ -26,6 +28,9 @@ export default {
   computed: {
     product() {
       return this.$store.getters['goods/product'];
+    },
+    isOpen() {
+      return this.$store.getters['cart/isOpen'];
     },
   },
 };

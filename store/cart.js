@@ -73,8 +73,8 @@ export const actions = {
 };
 
 export const getters = {
-  activeClassCart: (state) => state.activeCart,
-  productsInCart: (state) => state.productsInCart,
-  isOpen: (state) => state.isOpen,
-  isHidden: (state) => state.isHidden,
+  activeClassCart: ({ activeCart }) => activeCart,
+  productsInCart: ({ productsInCart }) => productsInCart,
+  isOpen: ({ isOpen }) => isOpen,
+  isHidden: ({ isHidden }) => isHidden,
 };
