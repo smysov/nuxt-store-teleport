@@ -15,14 +15,24 @@
     <span class="goods-cart__price">{{ product.price * product.quantity }}$</span>
     <div class="goods-cart__count">
       <button
-        class="goods-cart__button goods-cart__button_decrease"
+        class="goods-cart__button"
         @click="decreaseQuantity"
-      />
+      >
+        <svg-icon
+          name="minus"
+          class="goods-cart__icon-decrease"
+        />
+      </button>
       <span class="goods-cart__number">{{ product.quantity }}</span>
       <button
-        class="goods-cart__button goods-cart__button_increase"
+        class="goods-cart__button"
         @click="increaseQuantity"
-      />
+      >
+        <svg-icon
+          name="plus"
+          class="goods-cart__icon-increase"
+        />
+      </button>
     </div>
     <button
       class="goods-cart__remove-button"
