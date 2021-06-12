@@ -77,11 +77,17 @@ export default {
 
     &::before {
       position: absolute;
-      content: "";
-      bottom: -1px;
-      width: 100%;
-      height: 1px;
-      background: #000;
+      content: "Information";
+      font-size: 36px;
+      top: -16px;
+      left: -37px;
+      color: rgba(219, 219, 219, 0.2);
+
+      @include phone {
+        font-size: 50px;
+        top: -26px;
+        left: -60px;
+      }
     }
   }
 }

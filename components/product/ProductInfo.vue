@@ -122,6 +122,7 @@ export default {
   &__category {
     font-size: 16px;
     font-weight: 500;
+    padding: 5px;
 
     @include phone {
       font-size: 18px;
