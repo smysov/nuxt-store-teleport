@@ -40,6 +40,7 @@ export default {
 <style lang="scss">
 .pagination {
   display: flex;
+  justify-content: center;
   margin-top: 40px;
   column-gap: 2px;
 
