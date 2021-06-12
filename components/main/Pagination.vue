@@ -49,8 +49,8 @@ export default {
     width: 42px;
     height: 42px;
     text-align: center;
-    color: $light-pink;
-    border: 2px solid $light-pink;
+    color: #000;
+    border: 2px solid #000;
     cursor: pointer;
     transition: .3s all ease-out;
 
@@ -60,8 +60,8 @@ export default {
     }
 
     &_active {
-      color: #5ed15e;
-      border-color: #5ed15e;
+      color: #909090;
+      border-color: #909090;
     }
   }
 }
