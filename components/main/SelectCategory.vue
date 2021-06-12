@@ -48,14 +48,11 @@ export default {
 <style lang="scss">
 select {
   font-size: 18px;
-  font-weight: 500;
-  color: #fff;
   text-transform: capitalize;
   flex: 1;
-  box-shadow: none;
-  padding: 12px 12px;
-  border: 0 !important;
-  background: #FFBA9D;
+  padding: 8px 8px;
+  border: 2px solid #000;
+  background: none;
   outline: 0;
   cursor: pointer;
   -webkit-appearance: none;
@@ -78,12 +75,10 @@ select {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 12px 12px;
-    background: $light-pink;
-    color: #fff;
+    padding: 13px 10px;
+    background: none;
     cursor: pointer;
     pointer-events: none;
-    transition:.25s all ease;
   }
 }
 
