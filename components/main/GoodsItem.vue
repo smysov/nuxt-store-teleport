@@ -7,10 +7,12 @@
         class="goods__picture"
       >
     </div>
-    <h3 class="goods__title">
-      {{ product.title }}
-    </h3>
-    <span class="goods__price">{{ product.price }}$</span>
+    <div class="goods__info">
+      <h3 class="goods__title">
+        {{ slicedTitle }}
+      </h3>
+      <span class="goods__price">${{ product.price }}</span>
+    </div>
     <div class="goods__buttons">
       <button
         class="goods__button goods__button_buy"
@@ -35,6 +37,11 @@ export default {
     product: {
       type: Object,
       required: true,
+    },
+  },
+  computed: {
+    slicedTitle() {
+      return this.product.title.split(' ').slice(0, 5).join(' ');
     },
   },
   methods: {
@@ -65,7 +72,6 @@ export default {
     &__item {
       display: flex;
       flex-direction: column;
-      align-items: center;
       min-width: 300px;
       row-gap: 10px;
 
@@ -84,9 +90,13 @@ export default {
       }
     }
 
+    &__info {
+      padding: 0 10px;
+    }
+
     &__price {
       font-size: 18px;
-      color: $dark-grey;
+      font-weight: 500;
 
       @include phone {
         font-size: 20px;
@@ -99,7 +109,7 @@ export default {
       height: 200px;
       overflow: hidden;
       transition: all .3s linear;
-      margin-bottom: 5px;
+      margin: 0 auto 5px;
 
       @include phone {
         height: 300px;
@@ -112,8 +122,8 @@ export default {
 
     &__title {
       font-size: 14px;
-      font-weight: 500;
-      text-align: center;
+      font-weight: 300;
+      margin-bottom: 5px;
 
       @include phone {
         font-size: 18px;
@@ -131,34 +141,39 @@ export default {
     }
 
     &__button {
-      color: #fff;
+      color: #494949;
       min-width: 120px;
       font-weight: 700;
       text-transform: uppercase;
-      border-radius: 8px;
       padding: 5px 20px;
+      background: none;
+      transition: 0.3s all ease-out;
 
       &_buy {
-        background: #5ed15e;
 
         &:hover {
-          background: #379237;
+          opacity: .6;
         }
 
         &:focus {
-          border-color: #535353;
-      }
+          border-color: #56a553;
+          color: #56a553;
+        }
       }
 
       &_more {
         text-align: center;
-        background: $light-pink;
-        outline-color: $light-pink;
-        outline-offset: 3px;
-        border: 2px solid transparent;
+        background: none;
+        border: 2px solid #494949;
+        outline: none;
 
         &:hover {
-          background: #cf8c5f;
+          opacity: .6;
+        }
+
+        &:focus {
+          border-color: #cf8c5f;
+          color: #cf8c5f;
         }
       }
     }
