@@ -5,7 +5,7 @@
     <slider />
     <section class="products">
       <div class="container">
-        <h2 class="products__title">
+        <h2 class="title title_products">
           our products
         </h2>
         <header-products />
@@ -27,6 +27,14 @@
         />
       </div>
     </section>
+    <section class="brands">
+      <div class="container">
+        <h2 class="title title_brands">
+          our brands
+        </h2>
+        <brands-list />
+      </div>
+    </section>
     <modal-cart v-show="isOpen" />
   </div>
 </template>
@@ -37,11 +45,12 @@ import GoodsItem from '~/components/main/GoodsItem.vue';
 import Pagination from '~/components/main/Pagination.vue';
 import Slider from '~/components/main/Slider.vue';
 import ModalCart from '~/components/main/ModalCart.vue';
+import BrandsList from '~/components/brands/BrandsList.vue';
 
 export default {
   name: 'HomePage',
   components: {
-    GoodsItem, HeaderProducts, Pagination, Slider, ModalCart,
+    GoodsItem, HeaderProducts, Pagination, Slider, ModalCart, BrandsList,
   },
   layout: 'main',
   head() {
@@ -73,24 +82,23 @@ export default {
 </script>
 
 <style lang="scss">
-.products {
+.title {
+  position: relative;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  margin-bottom: 30px;
+  width: 148px;
+  margin: 0 auto 40px;
 
-  &__title {
-    position: relative;
-    font-size: 16px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1.1px;
-    margin-bottom: 30px;
-    width: 148px;
-    margin: 0 auto 40px;
+  @include phone {
+    font-size: 18px;
+    width: 166px;
+    margin-bottom: 50px;
+  }
 
-    @include phone {
-      font-size: 18px;
-      width: 166px;
-      margin-bottom: 50px;
-    }
-
+  &_products {
     &::before {
       position: absolute;
       content: "Products";
@@ -103,6 +111,23 @@ export default {
         font-size: 50px;
         top: -24px;
         left: -60px;
+      }
+    }
+  }
+
+  &_brands {
+    &::before {
+      position: absolute;
+      content: "Brands";
+      font-size: 43px;
+      top: -21px;
+      left: -36px;
+      color: rgba(219, 219, 219, 0.2);
+
+      @include phone {
+        font-size: 50px;
+        top: -24px;
+        left: -46px;
       }
     }
   }
