@@ -20,19 +20,17 @@
       <span class="product__price">
         {{ product.price }}$
       </span>
-      <button
-        class="product__button product__button_buy"
-        @click="addToCart(product)"
-      >
-        Buy
-      </button>
+      <ButtonAddToCart :product="product" />
     </div>
   </article>
 </template>
 
 <script>
+import ButtonAddToCart from '@/components/ui/ButtonAddToCart.vue';
+
 export default {
   name: 'ProductInfo',
+  components: { ButtonAddToCart },
   props: {
     product: {
       type: Object,
@@ -142,24 +140,5 @@ export default {
       font-size: 22px;
     }
   }
-}
-
-.product {
-  &__button {
-  color: #fff;
-  min-width: 120px;
-
-    &:focus {
-      border-color: #535353;
-    }
-
-  &_buy {
-    background: #5ed15e;
-
-    &:hover {
-      background: #379237;
-    }
-  }
-}
 }
 </style>
