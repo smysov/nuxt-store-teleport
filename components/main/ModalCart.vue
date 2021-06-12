@@ -57,14 +57,7 @@ export default {
       return this.$store.getters['cart/productsInCart'];
     },
     total() {
-      let total = [];
-
-      this.productsInCart.forEach((product) => {
-        total.push(product.price * product.quantity);
-      });
-
-      total = total.reduce((acc, item) => acc + item, 0);
-      return +total.toFixed(2);
+      return this.productsInCart.reduce((acc, item) => acc + item.price * item.quantity, 0);
     },
   },
   methods: {

@@ -20,7 +20,10 @@
       <span class="product__price">
         {{ product.price }}$
       </span>
-      <button class="product__button product__button_buy">
+      <button
+        class="product__button product__button_buy"
+        @click="addToCart(product)"
+      >
         Buy
       </button>
     </div>
@@ -38,6 +41,11 @@ export default {
   },
   head: {
     title: 'Информация о товаре',
+  },
+  methods: {
+    addToCart(product) {
+      this.$store.dispatch('cart/addProductToCart', product);
+    },
   },
 };
 </script>

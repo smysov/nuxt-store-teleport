@@ -1,4 +1,9 @@
-@mixin font($font-family: "Mantonico", $font-size: 12px, $font-weight: 300, $font-style: normal) {
+@mixin font(
+  $font-family: 'Mantonico',
+  $font-size: 12px,
+  $font-weight: 300,
+  $font-style: normal
+) {
   font-family: $font-family;
   font-size: $font-size;
   font-weight: $font-weight;
