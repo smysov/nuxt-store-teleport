@@ -93,11 +93,17 @@ export default {
 
     &::before {
       position: absolute;
-      content: "";
-      bottom: -1px;
-      width: 100%;
-      height: 1px;
-      background: #000;
+      content: "Products";
+      font-size: 43px;
+      top: -21px;
+      left: -50px;
+      color: rgba(219, 219, 219, 0.2);
+
+      @include phone {
+        font-size: 50px;
+        top: -24px;
+        left: -60px;
+      }
     }
   }
 }

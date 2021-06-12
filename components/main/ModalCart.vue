@@ -121,7 +121,7 @@ export default {
 
   &__header {
     width: 90%;
-    background-color: $light-pink;
+    background-color: $grey;
     padding: 10px 10px 10px 0;
     text-align: right;
 
