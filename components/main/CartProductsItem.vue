@@ -12,7 +12,7 @@
     <h2 class="goods-cart__title">
       {{ product.title }}
     </h2>
-    <span class="goods-cart_price">{{ product.price }}$</span>
+    <span class="goods-cart__price">{{ product.price * product.quantity }}$</span>
     <div class="goods-cart__count">
       <button
         class="goods-cart__button goods-cart__button_decrease"
@@ -20,15 +20,16 @@
       />
       <span class="goods-cart__number">{{ product.quantity }}</span>
       <button
-        class="
-              goods-cart__button goods-cart__button_increase"
+        class="goods-cart__button goods-cart__button_increase"
         @click="increaseQuantity"
       />
     </div>
     <button
       class="goods-cart__remove-button"
       @click="deleteProductFromCart"
-    />
+    >
+      Remove
+    </button>
   </li>
 </template>
 

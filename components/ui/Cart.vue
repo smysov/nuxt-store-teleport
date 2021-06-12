@@ -45,19 +45,20 @@ export default {
 
   &:hover {
     .cart__icon {
-      fill: #92be92;
+      opacity: .5;
     }
   }
 
   &_active {
     .cart__icon {
-      fill: #51b651;
+      stroke: #51b651;
     }
   }
 
   &__icon {
     width: 30px;
     height: 25px;
+    stroke: #000;
     transition: .3s all ease-out;
   }
 
@@ -65,7 +66,7 @@ export default {
     font-size: 13px;
     font-weight: 500;
     position: absolute;
-    top: -9px;
+    top: -8px;
     right: -9px;
     background: $grey;
     z-index: -1;

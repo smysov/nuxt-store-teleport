@@ -23,6 +23,7 @@ export default {
   align-items: center;
   font-size: 16px;
   font-weight: 700;
+  color: #000;
   text-transform: uppercase;
   transition: all .3s ease-out;
   margin-bottom: 20px;
