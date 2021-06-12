@@ -134,7 +134,7 @@ export default {
   .goods {
     &__buttons {
       display: flex;
-      justify-content: center;
+      justify-content: space-around;
       column-gap: 20px;
       margin-top: auto;
       width: 100%;

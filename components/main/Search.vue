@@ -54,7 +54,7 @@ export default {
     left: 9px;
     width: 15px;
     height: 15px;
-    border: 3px solid $light-pink;
+    border: 2px solid #000;
     border-radius: 50%;
   }
 
@@ -64,8 +64,8 @@ export default {
     top: 26px;
     left: 20px;
     width: 10px;
-    height: 3px;
-    background-color: $light-pink;
+    height: 2px;
+    background-color: #000;
     transform: rotate(45deg);
   }
 
@@ -76,8 +76,7 @@ export default {
     color: $dark-grey;
     padding: 5px 5px 8px 31px;
     min-width: 220px;
-    border: 3px solid $light-pink;
-    border-radius: 20px;
+    border: 2px solid #000;
     outline: none;
 
     &::placeholder {
@@ -91,8 +90,7 @@ export default {
     right: 13px;
     width: 15px;
     height: 15px;
-    stroke-width: 1px;
-    fill: $light-pink;
+    fill: #000;
     cursor: pointer;
   }
 }
