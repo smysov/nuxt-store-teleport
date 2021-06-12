@@ -15,7 +15,7 @@
 
 <script>
 import ProductInfo from '~/components/product/ProductInfo.vue';
-import ButtonBack from '~/components/main/ButtonBack.vue';
+import ButtonBack from '~/components/ui/ButtonBack.vue';
 import ModalCart from '~/components/main/ModalCart.vue';
 
 export default {
@@ -25,12 +25,23 @@ export default {
   async asyncData({ store, params }) {
     await store.dispatch('goods/requestProduct', params.id);
   },
+  head() {
+    return {
+      title: 'Главная страница',
+      bodyAttrs: {
+        class: this.isHidden ? 'hidden' : '',
+      },
+    };
+  },
   computed: {
     product() {
       return this.$store.getters['goods/product'];
     },
     isOpen() {
       return this.$store.getters['cart/isOpen'];
+    },
+    isHidden() {
+      return this.$store.getters['cart/isHidden'];
     },
   },
 };
@@ -66,11 +77,17 @@ export default {
 
     &::before {
       position: absolute;
-      content: "";
-      bottom: -1px;
-      width: 100%;
-      height: 1px;
-      background: #000;
+      content: "Information";
+      font-size: 36px;
+      top: -16px;
+      left: -37px;
+      color: rgba(219, 219, 219, 0.2);
+
+      @include phone {
+        font-size: 50px;
+        top: -26px;
+        left: -60px;
+      }
     }
   }
 }
