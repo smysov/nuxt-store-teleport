@@ -144,6 +144,7 @@ export default {
       color: #494949;
       min-width: 120px;
       font-weight: 700;
+      border: 2px solid #494949;
       text-transform: uppercase;
       padding: 5px 20px;
       background: none;
