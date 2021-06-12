@@ -11,7 +11,7 @@
       <div>{{ productsInCart.length }}</div>
     </div>
     <svg-icon
-      name="cart"
+      name="cart-shop"
       class="cart__icon"
     />
   </div>
@@ -58,24 +58,23 @@ export default {
   &__icon {
     width: 30px;
     height: 25px;
-    fill: $light-pink;
     transition: .3s all ease-out;
   }
 
   &__count {
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 500;
     position: absolute;
-    padding: 2px 7px;
-    top: -8px;
-    right: -5px;
-    color: #fff;
-    background: $dark-grey;
+    top: -9px;
+    right: -9px;
+    background: $grey;
+    z-index: -1;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 50%;
-
-    &_full {
-      background: #000;
-    }
   }
 }
 </style>
