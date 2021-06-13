@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="wrapper__content"
-  >
+  <div class="wrapper__content">
     <slider />
     <section class="products">
       <div class="container">
@@ -27,14 +25,7 @@
         />
       </div>
     </section>
-    <section class="brands">
-      <div class="container">
-        <h2 class="title title_brands">
-          our brands
-        </h2>
-        <brands-list />
-      </div>
-    </section>
+    <brands />
     <modal-cart v-show="isOpen" />
   </div>
 </template>
@@ -45,17 +36,22 @@ import GoodsItem from '~/components/main/GoodsItem.vue';
 import Pagination from '~/components/main/Pagination.vue';
 import Slider from '~/components/main/Slider.vue';
 import ModalCart from '~/components/main/ModalCart.vue';
-import BrandsList from '~/components/brands/BrandsList.vue';
+import Brands from '~/components/brands/BrandsSection.vue';
 
 export default {
   name: 'HomePage',
   components: {
-    GoodsItem, HeaderProducts, Pagination, Slider, ModalCart, BrandsList,
+    GoodsItem,
+    HeaderProducts,
+    Pagination,
+    Slider,
+    ModalCart,
+    Brands,
   },
   layout: 'main',
   head() {
     return {
-      title: 'Главная страница',
+      title: 'Home page',
       bodyAttrs: {
         class: this.isHidden ? 'hidden' : '',
       },
@@ -83,34 +79,20 @@ export default {
 
 <style lang="scss">
 .title {
-  position: relative;
-  font-size: 16px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1.1px;
-  margin-bottom: 30px;
-  width: 148px;
-  margin: 0 auto 40px;
-
-  @include phone {
-    font-size: 18px;
-    width: 166px;
-    margin-bottom: 50px;
-  }
-
   &_products {
     &::before {
       position: absolute;
       content: "Products";
       font-size: 43px;
       top: -21px;
-      left: -50px;
+      left: 50%;
+      transform: translateX(-50%);
       color: rgba(219, 219, 219, 0.2);
+      z-index: -1;
 
       @include phone {
         font-size: 50px;
         top: -24px;
-        left: -60px;
       }
     }
   }
@@ -121,13 +103,14 @@ export default {
       content: "Brands";
       font-size: 43px;
       top: -21px;
-      left: -36px;
+      left: 50%;
+      transform: translateX(-50%);
       color: rgba(219, 219, 219, 0.2);
+      z-index: -1;
 
       @include phone {
         font-size: 50px;
         top: -24px;
-        left: -46px;
       }
     }
   }

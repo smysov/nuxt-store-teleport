@@ -28,6 +28,22 @@ h6 {
   margin: 0;
 }
 
+.title {
+  position: relative;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  margin-bottom: 30px;
+  margin: 0 auto 40px;
+  text-align: center;
+
+  @include phone {
+    font-size: 18px;
+    margin-bottom: 50px;
+  }
+}
+
 a {
   text-decoration: none;
 }
