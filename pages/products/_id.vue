@@ -1,18 +1,18 @@
 <template>
   <div class="wrapper__content wrapper__content_fixed">
-    <information-about-product :product="product" />
+    <info-about-product-section :product="product" />
     <modal-cart v-show="isOpen" />
   </div>
 </template>
 
 <script>
-import InformationAboutProduct from '~/components/products/InformationAboutProduct.vue';
+import InfoAboutProductSection from '~/components/products/InfoAboutProductSection.vue';
 import ModalCart from '~/components/cart/ModalCart.vue';
 
 export default {
   name: 'FullInfoProduct',
   components: {
-    InformationAboutProduct, ModalCart,
+    InfoAboutProductSection, ModalCart,
   },
   layout: 'main',
   async asyncData({ store, params }) {
