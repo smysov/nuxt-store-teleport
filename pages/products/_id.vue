@@ -14,7 +14,7 @@ export default {
   components: {
     InfoAboutProductSection, ModalCart,
   },
-  layout: 'main',
+  layout: 'shop',
   async asyncData({ store, params }) {
     await store.dispatch('goods/requestProduct', params.id);
   },

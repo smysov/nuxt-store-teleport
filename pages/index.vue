@@ -21,7 +21,7 @@ export default {
     ModalCart,
     Brands,
   },
-  layout: 'main',
+  layout: 'shop',
   head() {
     return {
       title: 'Home page',

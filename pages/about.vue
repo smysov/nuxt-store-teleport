@@ -16,7 +16,7 @@ export default {
   components: {
     ModalCart, AboutUs, Contacts,
   },
-  layout: 'main',
+  layout: 'shop',
   head() {
     return {
       title: 'About page',

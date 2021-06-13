@@ -1,6 +1,6 @@
 export default {
   head: {
-    title: 'fortnite',
+    title: 'Teleport',
     htmlAttrs: {
       lang: 'en',
     },
