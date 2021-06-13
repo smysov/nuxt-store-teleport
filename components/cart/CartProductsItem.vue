@@ -12,11 +12,11 @@
     <h2 class="goods-cart__title">
       {{ product.title }}
     </h2>
-    <span class="goods-cart__price">{{ product.price * product.quantity }}$</span>
+    <span class="goods-cart__price">{{ +(product.price * product.quantity).toFixed(2) }}$</span>
     <div class="goods-cart__count">
       <button
         class="goods-cart__button"
-        @click="decreaseQuantity"
+        @click="decreaseQuantity(index)"
       >
         <svg-icon
           name="minus"
@@ -26,7 +26,7 @@
       <span class="goods-cart__number">{{ product.quantity }}</span>
       <button
         class="goods-cart__button"
-        @click="increaseQuantity"
+        @click="increaseQuantity(index)"
       >
         <svg-icon
           name="plus"
@@ -36,7 +36,7 @@
     </div>
     <button
       class="goods-cart__remove-button"
-      @click="deleteProductFromCart"
+      @click="deleteProductFromCart(index)"
     >
       Remove
     </button>
@@ -49,9 +49,11 @@ export default {
   props: {
     product: {
       type: Object,
-      default() {
-        return {};
-      },
+      required: true,
+    },
+    index: {
+      type: Number,
+      required: true,
     },
   },
   emits: ['deleteProductFromCart', 'decreaseQuantity', 'increaseQuantity'],
@@ -59,11 +61,11 @@ export default {
     deleteProductFromCart() {
       this.$emit('deleteProductFromCart');
     },
-    decreaseQuantity() {
-      this.$emit('decreaseQuantity');
+    decreaseQuantity(index) {
+      this.$emit('decreaseQuantity', index);
     },
-    increaseQuantity() {
-      this.$emit('increaseQuantity');
+    increaseQuantity(index) {
+      this.$emit('increaseQuantity', index);
     },
   },
 };

@@ -1,26 +1,19 @@
 <template>
   <div class="wrapper__content wrapper__content_fixed">
-    <section class="info">
-      <div class="container">
-        <button-back />
-        <h1 class="info__title">
-          Info about product
-        </h1>
-        <product-info :product="product" />
-      </div>
-    </section>
+    <information-about-product :product="product" />
     <modal-cart v-show="isOpen" />
   </div>
 </template>
 
 <script>
-import ProductInfo from '~/components/product/ProductInfo.vue';
-import ButtonBack from '~/components/ui/ButtonBack.vue';
-import ModalCart from '~/components/main/ModalCart.vue';
+import InformationAboutProduct from '~/components/products/InformationAboutProduct.vue';
+import ModalCart from '~/components/cart/ModalCart.vue';
 
 export default {
   name: 'FullInfoProduct',
-  components: { ProductInfo, ButtonBack, ModalCart },
+  components: {
+    InformationAboutProduct, ModalCart,
+  },
   layout: 'main',
   async asyncData({ store, params }) {
     await store.dispatch('goods/requestProduct', params.id);
@@ -57,38 +50,6 @@ export default {
 
   @include tablets {
     padding: 40px 0;
-  }
-
-    &__title {
-    position: relative;
-    font-size: 16px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1.1px;
-    margin-bottom: 30px;
-    width: 213px;
-    margin: 0 auto 40px;
-
-    @include phone {
-      font-size: 18px;
-      width: 237px;
-      margin-bottom: 50px;
-    }
-
-    &::before {
-      position: absolute;
-      content: "Information";
-      font-size: 36px;
-      top: -16px;
-      left: -37px;
-      color: rgba(219, 219, 219, 0.2);
-
-      @include phone {
-        font-size: 50px;
-        top: -26px;
-        left: -60px;
-      }
-    }
   }
 }
 </style>

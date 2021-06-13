@@ -20,7 +20,7 @@
       <span class="product__price">
         {{ product.price }}$
       </span>
-      <ButtonAddToCart :product="product" />
+      <button-add-to-cart :product="product" />
     </div>
   </article>
 </template>

@@ -3,61 +3,30 @@
     class="modal"
     @click="closeCart(false)"
   >
-    <div
-      class="modal__header"
-      @click.stop=""
-    >
-      <svg-icon
-        class="modal__close"
-        name="close"
-        @click="closeCart(false)"
-      />
-    </div>
-    <div
-      class="modal__content"
-      @click.stop=""
-    >
-      <ul
-        v-if="productsInCart.length !== 0"
-        class="goods-cart"
-        :class="{center: productsInCart.length === 1}"
-      >
-        <cart-products-item
-          v-for="(product, index) of productsInCart"
-          :key="product.id"
-          :product="product"
-          @deleteProductFromCart="deleteProductFromCart(index)"
-          @decreaseQuantity="decreaseQuantity(index)"
-          @increaseQuantity="increaseQuantity(index)"
-        />
-      </ul>
-      <p
-        v-show="!productsInCart.length"
-        class="cart-message"
-      >
-        Empty shopping cart!
-      </p>
-    </div>
-    <div class="modal__footer">
-      <p class="goods-cart__total">
-        <span>Total:</span>  {{ total }}$
-      </p>
-    </div>
+    <cart-header @closeCart="closeCart" />
+    <cart-products-list
+      v-bind="{productsInCart}"
+      @deleteProductFromCart="deleteProductFromCart"
+      @decreaseQuantity="decreaseQuantity"
+      @increaseQuantity="increaseQuantity"
+    />
+    <cart-footer :products-in-cart="productsInCart" />
   </div>
 </template>
 
 <script>
-import CartProductsItem from '~/components/main/CartProductsItem.vue';
+import CartHeader from '~/components/cart/CartHeader.vue';
+import CartProductsList from '~/components/cart/CartProductsList.vue';
+import CartFooter from '~/components/cart/CartFooter.vue';
 
 export default {
   name: 'ModalCart',
-  components: { CartProductsItem },
+  components: {
+    CartHeader, CartProductsList, CartFooter,
+  },
   computed: {
     productsInCart() {
       return this.$store.getters['cart/productsInCart'];
-    },
-    total() {
-      return +this.productsInCart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);
     },
   },
   methods: {
