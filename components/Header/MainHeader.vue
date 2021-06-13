@@ -3,7 +3,15 @@
     <div class="container">
       <nav class="navigation">
         <logo />
+        <main-navigation
+          v-bind="{menu, isActive}"
+          @closeMenu="closeMenu"
+        />
         <cart />
+        <burger-menu
+          :is-active="isActive"
+          @isOpenMenu="isOpenMenu"
+        />
       </nav>
     </div>
   </header>
@@ -12,10 +20,30 @@
 <script>
 import Logo from '~/components/ui/Logo.vue';
 import Cart from '~/components/ui/Cart.vue';
+import BurgerMenu from '~/components/ui/BurgerMenu.vue';
+import MainNavigation from '~/components/header/MainNavigation.vue';
 
 export default {
   name: 'MainHeader',
-  components: { Logo, Cart },
+  components: {
+    Logo, Cart, BurgerMenu, MainNavigation,
+  },
+  computed: {
+    menu() {
+      return this.$store.getters['menu/menu'];
+    },
+    isActive() {
+      return this.$store.getters['menu/isActive'];
+    },
+  },
+  methods: {
+    isOpenMenu() {
+      this.$store.dispatch('menu/setIsActive');
+    },
+    closeMenu() {
+      this.$store.dispatch('menu/closeMenu');
+    },
+  },
 };
 </script>
 
@@ -27,7 +55,6 @@ export default {
 
 .navigation {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
 }
 </style>
