@@ -29,6 +29,7 @@ export default {
   color: $dark-grey;
   transition: all .3s ease-out;
   max-width: 150px;
+  margin-right: auto;
 
   @include tablets {
     font-size: 18px;
@@ -37,12 +38,12 @@ export default {
   &:hover {
     opacity: .7;
     .logo__icon {
-      fill: #ff7676;
+      fill: red;
     }
   }
 
   &__icon {
-    fill: $light-pink;
+    fill: $dark-grey;
     width: 23px;
     height: 21px;
     transition: all .3s ease-out;
