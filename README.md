@@ -39,16 +39,16 @@ make sure that you have the latest version of Node installed.js & **YARN**
 Install the dependencies and devDependencies and start the server.
 
 ```
-$ git clone git@github.com:smysov/vue-todolist.git or https://github.com/smysov/vue-todolist.git
-$ cd vue-todolist
-$ yarn
+$ git clone git@github.com:smysov/nuxt-store-teleport.git or https://github.com/smysov/nuxt-store-teleport.git
+$ cd nuxt-store-teleport
+$ yarn or yarn install
 ```
 
-| Script  | Purpose                                           |
-| ------- | ------------------------------------------------- | --- |
-| _dev_   | Compiles and hot-reloads for **development** mode |
-| _build_ | Compiles and minifies for **production**          |
-| _lint_  | Lints and fixes files                             |     |
+| Script     | Purpose                                           |
+| ---------- | ------------------------------------------------- | --- |
+| _dev_      | Compiles and hot-reloads for **development** mode |
+| _build_    | Compiles and minifies for **production**          |
+| _lint:fix_ | Lints and fixes files                             |     |
 
 #### To run the script:
 
