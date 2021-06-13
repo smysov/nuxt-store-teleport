@@ -1,9 +1,10 @@
 <template>
   <div class="wrapper__contact">
     <section class="contacts">
-      <h2 class="title title_contacts">
-        Contacts
-      </h2>
+      <name-heading
+        title="contacts"
+        view="title title_contacts"
+      />
       <div class="connection">
         <div class="container">
           <h3 class="connection__title">
@@ -29,33 +30,17 @@
 </template>
 
 <script>
+import NameHeading from '~/components/ui/NameHending.vue';
+
 export default {
   name: 'Contacts',
+  components: {
+    NameHeading,
+  },
 };
 </script>
 
 <style lang="scss">
-.title {
-  &_contacts {
-    &::before {
-      position: absolute;
-      content: "Contacts";
-      font-size: 36px;
-      top: -16px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: rgba(219, 219, 219, 0.2);
-      white-space: nowrap;
-      z-index: -1;
-
-      @include phone {
-        font-size: 50px;
-        top: -24px;
-      }
-    }
-  }
-}
-
 .connection {
   padding: 30px 10px;
 

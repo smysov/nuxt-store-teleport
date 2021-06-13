@@ -1,9 +1,10 @@
 <template>
   <section class="about-us">
     <div class="container">
-      <h1 class="title title_about">
-        who are we?
-      </h1>
+      <name-heading
+        title="who are we?"
+        view="title title_about"
+      />
       <ul class="about-list">
         <li class="about-list__item">
           <h2 class="about-list__title">
@@ -40,8 +41,13 @@
 </template>
 
 <script>
+import NameHeading from '~/components/ui/NameHending.vue';
+
 export default {
   name: 'AboutUs',
+  components: {
+    NameHeading,
+  },
 };
 </script>
 
