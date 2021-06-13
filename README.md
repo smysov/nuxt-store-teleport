@@ -45,10 +45,10 @@ $ yarn or yarn install
 ```
 
 | Script     | Purpose                                           |
-| ---------- | ------------------------------------------------- | --- |
+| ---------- | ------------------------------------------------- |
 | _dev_      | Compiles and hot-reloads for **development** mode |
 | _build_    | Compiles and minifies for **production**          |
-| _lint:fix_ | Lints and fixes files                             |     |
+| _lint:fix_ | Lints and fixes files                             |
 
 #### To run the script:
 
