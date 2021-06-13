@@ -42,6 +42,7 @@ export default {
 .cart {
   position: relative;
   cursor: pointer;
+  margin-right: 25px;
 
   &:hover {
     .cart__icon {
@@ -57,7 +58,7 @@ export default {
 
   &__icon {
     width: 30px;
-    height: 25px;
+    height: 28px;
     stroke: #000;
     transition: .3s all ease-out;
   }
