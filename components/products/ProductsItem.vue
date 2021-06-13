@@ -27,7 +27,7 @@ import ButtonAddToCart from '@/components/ui/ButtonAddToCart.vue';
 import ButtonMoreAboutProduct from '@/components/ui/ButtonMoreAboutProduct.vue';
 
 export default {
-  name: 'GoodsItem',
+  name: 'ProductsItem',
   components: { ButtonAddToCart, ButtonMoreAboutProduct },
   props: {
     product: {

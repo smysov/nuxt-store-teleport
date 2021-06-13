@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import ModalCart from '~/components/main/ModalCart.vue';
+import ModalCart from '~/components/cart/ModalCart.vue';
 import AboutUs from '~/components/about/AboutUs.vue';
 import Contacts from '~/components/about/Contacts.vue';
 
@@ -35,26 +35,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-.title {
-  &_about {
-    &::before {
-      position: absolute;
-      content: "Who are we";
-      font-size: 36px;
-      top: -16px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: rgba(219, 219, 219, 0.2);
-      white-space: nowrap;
-      z-index: -1;
-
-      @include phone {
-        font-size: 50px;
-        top: -24px;
-      }
-    }
-  }
-}
-</style>
